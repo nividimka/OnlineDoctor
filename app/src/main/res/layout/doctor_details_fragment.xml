@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f9f9">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/ToolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:elevation="0dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Doctor's Profile" />
+
+    <ImageView
+        android:id="@+id/photoIV"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/profile2" />
+
+    <TextView
+        android:id="@+id/nameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_below="@+id/photoIV"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_below="@+id/nameTV"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
+        android:text="Speciality"
+        android:id="@+id/specialityTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Book Appointment"
+        android:id="@+id/bookBtn"
+        android:layout_below="@+id/specialityTV"
+        style="@style/AppTheme.Button.Blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

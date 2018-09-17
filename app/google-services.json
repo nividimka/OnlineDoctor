@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "684718388869",
+    "firebase_url": "https://onlinedoctor-7c9f7.firebaseio.com",
+    "project_id": "onlinedoctor-7c9f7",
+    "storage_bucket": "onlinedoctor-7c9f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684718388869:android:6b3df31a7e9a63a5",
+        "android_client_info": {
+          "package_name": "dkgroup.kz.onlinedoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684718388869-q9cncbvfpm9noq0i3mg9jtun8ia4gthh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpudMhUll1guc7AhJAL7_076ZvMUlvv90"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

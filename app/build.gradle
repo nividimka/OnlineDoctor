@@ -1,0 +1,136 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    signingConfigs {
+        config {
+            keyAlias 'onlinedoctor'
+            keyPassword 'onlinedoctor'
+            storeFile file('/home/nividimka/Documents/keys/dkgroup.jks')
+            storePassword 'google9999'
+        }
+    }
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        applicationId "dkgroup.kz.onlinedoctor"
+        minSdkVersion versions.minSdk
+        targetSdkVersion 21
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '27.0.3'
+}
+
+
+project.ext {
+    supportLibraryVersion = "26.1.0"
+    androidArchVersion = "1.0.0-rc1"
+    daggerVersion = "2.11"
+    butterKnifeVersion = "8.8.1"
+    rxJavaVersion = "2.1.0"
+    rxAndroidVersion = "2.0.1"
+    timberVersion = "4.5.1"
+    priorityJobQueueVersion = "2.0.1"
+    playServicesVersion = "11.4.2"
+    retrofitVersion = "2.1.0"
+    okHttpVersion = "3.4.1"
+    rxRelayVersion = "2.0.0"
+    rxLintVersion = "1.6"
+    ciceroneVersion = "3.0.0"
+    moxyVersion = "1.4.6"
+}
+dependencies {
+    implementation('com.mikepenz:materialdrawer:6.0.6@aar') {
+        transitive = true
+    }
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:support-annotations:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation "ru.terrakok.cicerone:cicerone:3.0.0"
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+
+    // Dagger Android
+    annotationProcessor "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.22.5"
+    implementation 'com.google.firebase:firebase-auth:12.0.0'
+    implementation 'com.google.firebase:firebase-firestore:12.0.0'
+    implementation 'com.google.firebase:firebase-database:12.0.0'
+    implementation 'com.google.firebase:firebase-messaging:12.0.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+        transitive = true;
+    }
+
+    implementation "com.github.bumptech.glide:glide:3.8.0"
+    //MVP Moxy
+    kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+    implementation "com.arello-mobile:moxy-app-compat:$moxyVersion"
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.0"
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    implementation 'com.android.support:multidex:1.0.1'
+    compile 'com.applandeo:material-calendar-view:1.4.0'
+    compile 'com.pubnub:pubnub-android:3.7.4'
+    compile 'io.pristine:libjingle:9694@aar'
+
+
+    compile project(path: ':pnwebrtc')
+}
+
+kapt {
+    generateStubs = true
+}
+
+apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
